@@ -1,15 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from "../context";
 
 export default function GoodItem(props) {
-  const {
-    id,
-    name,
-    description,
-    price,
-    full_background,
-    addToBasket,
-    notify,
-  } = props;
+  const { addToBasket } = useContext(ShopContext);
+  const { id, name, description, price, full_background } = props;
   return (
     <div className="card">
       <div className="card-image">
@@ -24,7 +18,6 @@ export default function GoodItem(props) {
           className="btn most-color"
           onClick={() => {
             addToBasket({ id, name, price });
-            notify();
           }}
         >
           Buy

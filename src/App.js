@@ -4,14 +4,17 @@ import Header from "./components/Header";
 import Shop from "./components/Shop";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ContextProvider } from "./context";
 function App() {
   return (
-    <>
-      <ToastContainer  autoClose={2000}/>
+    <div className="App">
+      <ToastContainer autoClose={500} />
       <Header />
-      <Shop />
+      <ContextProvider>
+        <Shop />
+      </ContextProvider>
       <Footer />
-    </>
+    </div>
   );
 }
 
