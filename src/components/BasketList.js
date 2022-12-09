@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import BasketItem from "./BasketItem";
+import { ShopContext } from "../context";
+export default function BasketList() {
+  const { order = [], handleBasketShow = Function.prototype } =
+    useContext(ShopContext);
 
-export default function BasketList(props) {
-  const {
-    order = [],
-    handleBasketShow,
-    removeFromBasket,
-    decrementQuantity,
-    incrementQuantity,
-  } = props;
   let totalPrice = 0;
   const totalPriceSum = () => {
     order.forEach((item) => {
@@ -21,7 +17,7 @@ export default function BasketList(props) {
       <div
         id="modal1"
         className="modal rounded"
-        style={{ zIndex: "10", display: "block" }}
+        style={{ zIndex: "100", display: "block" }}
       >
         <div className="modal-content">
           <ul className="collection">
@@ -31,15 +27,7 @@ export default function BasketList(props) {
             <span className="hideg">
               {order.length ? (
                 order.map((item) => {
-                  return (
-                    <BasketItem
-                      key={item.id}
-                      {...item}
-                      removeFromBasket={removeFromBasket}
-                      incrementQuantity={incrementQuantity}
-                      decrementQuantity={decrementQuantity}
-                    />
-                  );
+                  return <BasketItem key={item.id} {...item} />;
                 })
               ) : (
                 <li className="collection-item">Basket is empty!</li>
