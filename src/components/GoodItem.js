@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { ShopContext } from "../context";
 
 export default function GoodItem(props) {
-  const { addToBasket } = useContext(ShopContext);
+  const { value } = useContext(ShopContext);
+  const { addToBasket } = value;
   const { id, name, description, price, full_background } = props;
   return (
     <div className="card">
@@ -16,9 +17,7 @@ export default function GoodItem(props) {
       <div className="card-action">
         <button
           className="btn most-color"
-          onClick={() => {
-            addToBasket({ id, name, price });
-          }}
+          onClick={() => addToBasket({ id, name, price })}
         >
           Buy
         </button>

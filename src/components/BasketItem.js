@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { ShopContext } from "../context";
 export default function BasketItem(props) {
-  const { incrementQuantity, decrementQuantity, removeFromBasket } =
-    useContext(ShopContext);
+  const { value } = useContext(ShopContext);
+  const { incrementQuantity, decrementQuantity, removeFromBasket } = value;
   const { id, name, price, quantity } = props;
   return (
     <li className="collection-item" key={id}>

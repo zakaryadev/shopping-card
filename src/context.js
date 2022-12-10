@@ -33,6 +33,9 @@ export const ContextProvider = ({ children }) => {
   };
 
   return (
-    <ShopContext.Provider value={initialState}>{children}</ShopContext.Provider>
+    <ShopContext.Provider value={{dispatch: dispatch, value: value }}>{children}</ShopContext.Provider>
   );
 };
+
+
+

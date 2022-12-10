@@ -68,12 +68,12 @@ const reducer = (state, { type, payload }) => {
       };
     }
 
-    case "TOGGLE_BASKET":
-      toast.success("AWA");
+    case "TOGGLE_BASKET": {
       return {
         ...state,
-        isBasketShow: state.isBasketShow ? false : true,
+        isBasketShow: !state.isBasketShow,
       };
+    }
 
     case "REMOVE_FROM_BASKET": {
       toast.error("The element removed successfully!");

@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import BasketItem from "./BasketItem";
 import { ShopContext } from "../context";
 export default function BasketList() {
-  const { order = [], handleBasketShow = Function.prototype } =
-    useContext(ShopContext);
-
+  const { value } = useContext(ShopContext);
+  const { order = [], handleBasketShow } = value;
   let totalPrice = 0;
   const totalPriceSum = () => {
     order.forEach((item) => {

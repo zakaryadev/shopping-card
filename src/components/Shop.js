@@ -7,7 +7,8 @@ import ShoppingCart from "./ShoppingCart";
 import { ShopContext } from "../context";
 
 export default function Shop(props) {
-  const { setGoods, loaded, isBasketShow } = useContext(ShopContext);
+  const { value } = useContext(ShopContext);
+  const { isBasketShow, loaded, setGoods } = value;
   useEffect(() => {
     fetch(API_URL, {
       headers: {
@@ -21,7 +22,7 @@ export default function Shop(props) {
   }, []);
   return (
     <div className="content">
-      {isBasketShow && <BasketList />}
+      {isBasketShow ? <BasketList /> : null}
       <ShoppingCart />
       {loaded ? <GoodList /> : <Loader />}
     </div>
