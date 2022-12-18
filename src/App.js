@@ -8,7 +8,7 @@ import { ContextProvider } from "./context";
 function App() {
   return (
     <div className="App">
-      <ToastContainer autoClose={500} />
+      <ToastContainer autoClose={500} theme="colored" draggable />
       <Header />
       <ContextProvider>
         <Shop />
